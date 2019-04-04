@@ -2,6 +2,13 @@
 
 It's like Amazon...except less so. Bamazon is a CLI app that connects to a MySQL database of products, and allows the user to "buy" items, subtracting from the available quantity. It robustly handles invalid purchase quantities and item numbers, with only a reasonable level of snark.
 
+### Usage
+* Clone the repo
+* Run `npm install` to get the dependencies
+* Set up the database by running the schema file:
+  * `mysql -uroot -p
+  * `source bamazon.sql`
+
 ### Technologies
 * node
 * inquirer
