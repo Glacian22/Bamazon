@@ -6,7 +6,7 @@ It's like Amazon...except less so. Bamazon is a CLI app that connects to a MySQL
 * Clone the repo
 * Run `npm install` to get the dependencies
 * Set up the database by running the schema file:
-  * `mysql -uroot -p
+  * `mysql -uroot -p`
   * `source bamazon.sql`
 
 ### Technologies
