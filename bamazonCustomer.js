@@ -32,10 +32,7 @@ function runBamazonCustomer() {
                 return;
             } else {
                 //turn the array into an object so we won't see confusing "index" starting from 0 and "id" starting from 1 in the table
-                var converted = {
-                    // 1: res[0],
-                    // 2: res[1]
-                }
+                var converted = {};
                 for (var i = 0; i < res.length; i++) {
                     var obj = {};
                     obj.product_name = res[i].product_name;
@@ -102,7 +99,6 @@ function finishOrder(id, quantity) {
 }
 
 function updateDB(id, newQuantity) {
-    console.log("ID:", id, "newQ", newQuantity);
     var query = connection.query(
         "UPDATE products SET stock_quantity = " + newQuantity + " WHERE id = " + id,
 

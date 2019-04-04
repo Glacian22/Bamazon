@@ -15,8 +15,8 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
  VALUES 
  ("moon shoes", "footwear", 15.75, 19),
  ("dance shoes", "footwear", 21.00, 30),
- ("back massager", "adult novelties", 79.25, 27),
- ("personal lubricant", "adult novelties", 16.99, 12),
+ ("mega toaster", "kitchen", 79.25, 27),
+ ("lobster whistle", "appliances", 16.99, 12),
  ("waffle maker", "kitchen", 29.99, 9),
  ("pirate shirt", "menswear", 34.50, 65),
  ("extra tight pants", "menswear", 25, 31),
