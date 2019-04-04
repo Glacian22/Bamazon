@@ -8,6 +8,8 @@ It's like Amazon...except less so. Bamazon is a CLI app that connects to a MySQL
 * Set up the database by running the schema file:
   * `mysql -uroot -p`
   * `source bamazon.sql`
+  * `quit`
+ * Then just `node bamazon.js` as in the demo below
 
 ### Technologies
 * node
