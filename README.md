@@ -1,1 +1,12 @@
 # Bamazon
+
+It's like Amazon...except less so. Bamazon is a CLI app that connects to a MySQL database of products, and allows the user to "buy" items, subtracting from the available quantity. It robustly handles invalid purchase quantities and item numbers, with only a reasonable level of snark.
+
+### Technologies
+* node
+* inquirer
+* mysql
+
+### Demo
+
+[![Bamazon-demo.gif](https://s2.gifyu.com/images/Bamazon-demo.gif)](https://gifyu.com/image/3Yqg)
