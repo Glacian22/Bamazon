@@ -21,7 +21,6 @@ connection.connect(function (err) {
     runBamazonCustomer();
 });
 
-var keepRunning = true;
 function runBamazonCustomer() {
     var query = connection.query(
         "SELECT id, product_name, price FROM products",
@@ -81,14 +80,17 @@ function finishOrder(id, quantity) {
         "SELECT * FROM products WHERE id = " + id,
 
         function (err, res) {
+            if (!res[0]){
+                console.log("Please choose a valid item")
+                return runBamazonCustomer();
+            }
             if (err) {
                 connection.end();
                 return console.log("ERROR:", err)
             } else {
                 if (res[0].stock_quantity < quantity) {
-                    console.log("Sorry, we don't have enough, cancelling order");
-                    connection.end();
-
+                    console.log("Sorry, we don't have enough, cancelling order\n\n");
+                    offerQuit();
                 } else {
                     updateDB(id, res[0].stock_quantity - quantity);
                 }
@@ -107,8 +109,26 @@ function updateDB(id, newQuantity) {
                 connection.end();
                 return console.log("ERROR:", err);
             } else {
-                console.log("Purchase successful, thank you! See you soon!")
-                connection.end();
+                console.log("Purchase successful, thank you! See you soon!\n\n")
+                offerQuit()
             }
         })
+}
+
+function offerQuit(){
+    inquirer.prompt({
+        type: "list",
+        name: "offerquit",
+        message: "Would you like to purchase another item?\n",
+        choices: ["Yep, I need more stuff", "Nope, all done for today"]
+    }).then(function(input){
+
+        if (input.offerquit === "Yep, I need more stuff"){
+            runBamazonCustomer()
+        }else{
+        console.log("See you space cowboy...");
+        connection.end();
+        }
+    })
+
 }
